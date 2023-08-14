@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/danny/Documents/sqlite_training/Ex_Files_SQL_EssT/Exercise Files/WSDA_Music.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="150"/><column_width id="3" width="6158"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainTrack"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Album" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="100"/><column index="2" value="300"/><column index="3" value="90"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Artist" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="2" mode="0"/></sort><column_widths><column index="1" value="90"/><column index="2" value="226"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Customer" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="131"/><column index="2" value="115"/><column index="3" value="125"/><column index="4" value="300"/><column index="5" value="300"/><column index="6" value="199"/><column index="7" value="65"/><column index="8" value="149"/><column index="9" value="123"/><column index="10" value="199"/><column index="11" value="189"/><column index="12" value="282"/><column index="13" value="156"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Employee" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="133"/><column index="2" value="111"/><column index="3" value="115"/><column index="4" value="187"/><column index="5" value="115"/><column index="6" value="195"/><column index="7" value="195"/><column index="8" value="275"/><column index="9" value="102"/><column index="10" value="65"/><column index="11" value="92"/><column index="12" value="123"/><column index="13" value="178"/><column index="14" value="178"/><column index="15" value="256"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Invoice" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="111"/><column index="2" value="131"/><column index="3" value="195"/><column index="4" value="300"/><column index="5" value="199"/><column index="6" value="129"/><column index="7" value="156"/><column index="8" value="187"/><column index="9" value="79"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Track" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="91"/><column index="2" value="222"/><column index="3" value="100"/><column index="4" value="145"/><column index="5" value="96"/><column index="6" value="295"/><column index="7" value="135"/><column index="8" value="117"/><column index="9" value="105"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="V_AvgTotal" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="270"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="V_Tracks_InvoiceLine" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="111"/><column index="2" value="105"/><column index="3" value="99"/><column index="4" value="206"/><column index="5" value="300"/><column index="6" value="135"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">-- This is a comment
+/*
+Created by: Daniel Mevs
+creation date:8/10/23
+description: this is the structure of a basic query
+*/
+
+
+
+</sql><sql name="SQL 2">/*
+Created by: Daniel Mevs
+Created date: 8/10/23
+Description: all customers first and last names along with their emails
+*/
+SELECT
+	FirstName AS [Customer First Name],
+	LastName AS [Customer Last Name],
+	Email AS [Customer Email]
+FROM 
+	Customer
+ORDER BY
+	FirstName ASC,
+	LastName DESC
+LIMIT 10</sql><sql name="SQL 3">/*
+Created by: Daniel Mevs
+Created Date: 8/10/2023
+Description: Find the number of customers who order two songs at $0.99 each.
+*/
+
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity
+FROM
+	Invoice
+WHERE
+	total = 1.98
+ORDER BY
+	InvoiceDate</sql><sql name="SQL 4">/*
+Created by: Daniel Mevs
+Created date: 8/10/23
+Description: Find the number of invoices of songs between $1.98 and $5.00
+*/
+
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity
+FROM
+	Invoice
+WHERE
+	total BETWEEN 1.98 AND 5.00
+ORDER BY
+	InvoiceDate</sql><sql name="SQL 5">/*
+Created by: Daniel Mevs
+Created date: 8/10/23
+Description: Find the number of invoices of songs between $1.98 and $5.00
+*/
+
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity
+FROM
+	Invoice
+WHERE
+	total IN (1.98, 3.96)
+ORDER BY
+	InvoiceDate</sql><sql name="SQL 6">/*
+Created by: Daniel Mevs
+Created date: 8/10/23
+Description: Find the customers whose billing address is in Brussels, Paris and Orlando
+*/
+
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	total
+FROM
+	Invoice
+WHERE
+	BillingCity  IN ('Brussels', 'Orlando', 'Paris')
+ORDER BY
+	InvoiceDate</sql><sql name="SQL 7">/*
+Created by: Daniel Mevs
+Created date: 8/10/23
+Description: Find the number of invoices were billed in a city that starts with 'B'
+*/
+-- % is like saying I don't care what comes next (wild card character)
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	total
+FROM
+	Invoice
+WHERE
+	BillingCity  LIKE 'B%'
+ORDER BY
+	InvoiceDate</sql><sql name="SQL 8">/*
+Created by: Daniel Mevs
+Created date: 8/10/23
+Description: Find the number of invoices billed by cities that have 'B' anywhere in it's name
+*/
+-- % is like saying I don't care what comes next (wild card character)
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	total
+FROM
+	Invoice
+WHERE
+	BillingCity  LIKE '%B%'
+ORDER BY
+	InvoiceDate</sql><sql name="SQL 9">/*
+Created by: Daniel Mevs
+Created date: 8/10/23
+Description: Find how many invoices were billed on May 22, 2010
+*/
+-- % is like saying I don't care what comes next (wild card character)
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	total
+FROM
+	Invoice
+WHERE
+	--InvoiceDate = '2010-05-22 00:00:00'
+-- 	DATE(InvoiceDate) = '2010-05-22'
+	DATE(InvoiceDate) &gt; '2010-05-22' AND total &lt; 3.00
+ORDER BY
+	InvoiceDate</sql><sql name="SQL 10">/*
+Created by: Daniel Mevs
+Created date: 8/10/23
+Description: Find how many invoices have cities that start with P or start with D 
+*/
+-- % is like saying I don't care what comes next (wild card character)
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	total
+FROM
+	Invoice
+WHERE
+	BillingCity LIKE 'P%' OR BillingCity LIKE 'D%'
+ORDER BY
+	InvoiceDate</sql><sql name="SQL 11">/*
+Created by: Daniel Mevs
+Created date: 8/10/23
+Description: Find how many invoices have cities that start with P or start with D and total is greater than 1.98
+*/
+-- % is like saying I don't care what comes next (wild card character)
+-- PEMDAS - Parentheses, Exponents, Multiplication/Division, Addition/Subtraction
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	total
+FROM
+	Invoice
+WHERE
+	total &gt; 1.98 AND (BillingCity LIKE 'P%' OR BillingCity LIKE 'D%')
+ORDER BY
+	InvoiceDate</sql><sql name="SQL 12">/*
+Created by: Daniel Mevs
+Created date: 8/10/23
+Description: WSDA Music wants as many customers as possible to spend between $7.00 and $15.00
+*/
+/*
+Baseline Purchase - Between $0.99 - $1.99
+Low Purchase - Between $2.00 - $6.00
+Target Purchase - Between $7.00 - $15.00
+Top Performer - Above $15.00
+*/
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	total,
+	CASE
+	WHEN total &lt; 2.00 THEN 'Baseline Purchase'
+	WHEN total BETWEEN 2.00 AND 6.99 THEN 'Low Purchase'
+	WHEN total BETWEEN 7.00 AND 15.00 THEN 'Target Purchase'
+	ELSE 'Top Performer'
+	END AS PurchaseType
+FROM
+	Invoice
+WHERE
+	PurchaseType = 'Top Performer'
+ORDER BY
+	InvoiceDate</sql><sql name="SQL 13">/*
+Created by: Daniel Mevs
+Created Date: 8/11/23
+Description: JOINS
+*/
+
+SELECT
+	*
+FROM
+	Invoice
+INNER JOIN
+	Customer
+ON
+	Invoice.CustomerId = Customer.CustomerId</sql><sql name="SQL 14">/*
+Created by: Daniel Mevs
+Created Date: 8/11/23
+Description: JOINS
+*/
+
+SELECT
+	c.LastName,
+	c.FirstName,
+	i.InvoiceId,
+	i.CustomerId,
+	i.InvoiceDate,
+	i.total
+FROM
+	Invoice as i
+INNER JOIN
+	Customer as c
+ON
+	i.CustomerId = c.CustomerId
+ORDER BY c.CustomerId</sql><sql name="SQL 15">/*
+
+Creation author: Daniel Mevs
+Creation date: 8/12/23
+Description: INNER JOIN
+
+*/
+
+SELECT
+	i.InvoiceId,
+	c.CustomerId,
+	i.InvoiceDate,
+	i.BillingAddress,
+	i.Total
+FROM
+	Invoice AS i
+INNER JOIN Customer AS c
+ON i.CustomerId = c.CustomerId</sql><sql name="SQL 16">/*
+
+Creation author: Daniel Mevs
+Creation date: 8/12/23
+Description: LEFT OUTER JOIN
+
+*/
+
+SELECT
+	i.InvoiceId,
+	c.CustomerId,
+	i.InvoiceDate,
+	i.BillingAddress,
+	i.Total
+FROM
+	Invoice AS i
+LEFT OUTER JOIN
+	Customer AS c
+ON 
+	i.CustomerId = c.CustomerId</sql><sql name="SQL 17">/*
+
+Creation author: Daniel Mevs
+Creation date: 8/12/23
+Description: RIGHT OUTER JOIN
+
+*/
+
+SELECT
+	i.InvoiceId,
+	c.CustomerId,
+	c.firstName,
+	c.LastName,
+	c.Address,
+	i.InvoiceDate,
+	i.BillingAddress,
+	i.Total
+FROM
+	Customer AS c
+LEFT JOIN
+	
+	Invoice AS i
+ON 
+	i.CustomerId = c.CustomerId</sql><sql name="SQL 18">/*
+Created by: Daniel Mevs
+Created Date: 8/12/23
+Description: JOIN's on multiple talbes. What employees are responsible for the 10 highest individual sales
+*/
+
+SELECT
+	e.FirstName,
+	e.LastName,
+	e.EmployeeId,
+	c.FirstName,
+	c.LastName,
+	c.SupportRepId,
+	i.CustomerId,
+	i.total
+FROM
+	Invoice as i
+INNER JOIN
+	Customer as c
+ON
+	i.CustomerId = c.CustomerId
+INNER JOIN
+	Employee as e
+ON
+	c.SupportRepId = e.EmployeeId
+ORDER BY
+	i.total DESC
+LIMIT 10</sql><sql name="SQL 19">/*
+Created by: Daniel Mevs
+Created Date: 8/12/23
+Description: String Functions
+*/
+
+-- The pipe (denoted ||) indicates concatenating two strings
+
+SELECT
+	FirstName,
+	LastName,
+	Address,
+	FirstName || ' ' || LastName || ' ' || Address || ', ' || City || ' ' || State || ' ' || PostalCode AS [Mailing Address]
+FROM
+	Customer
+WHERE
+	Country = 'USA'
+
+</sql><sql name="SQL 20">/*
+Created by: Daniel Mevs
+Created Date: 8/12/23
+Description: Create a mailing list of US Customers
+*/
+
+-- The pipe (denoted ||) indicates concatenating two strings
+
+SELECT
+	FirstName,
+	LastName,
+	Address,
+	FirstName || ' ' || LastName || ' ' || Address || ', ' || City || ' ' || State || ' ' || PostalCode AS [Mailing Address],
+	LENGTH(PostalCode),
+	substr(PostalCode, 1, 5) AS ['5 Digit Postal Code'],
+	upper(FirstName) AS ['First Name All Caps'],
+	lower(LastName) AS ['Last Name All Lower']
+FROM
+	Customer
+WHERE
+	Country = 'USA'
+</sql><sql name="SQL 21">/*
+Creation author: Daniel Mevs
+Creation date: 8/13/23
+Description: Calculate the age of all employees
+*/
+
+SELECT
+	LastName,
+	FirstName,
+	BirthDate,
+	strftime(&quot;%Y-%m-%d&quot;, Birthdate) AS [BirthDate No Timecode],
+	strftime(&quot;%Y-%m-%d&quot;, 'now') - strftime(&quot;%Y-%m-%d&quot;, Birthdate) AS Age
+FROM
+	Employee</sql><sql name="SQL 22">/*
+Created by: Daniel Mevs
+Created date: 8/13/23
+Description: Aggregate functions | What are our all time global sales?
+*/
+
+SELECT
+	SUM(Total) AS [Total Sales],
+	AVG(Total) AS [Average Sales],
+	MAX(Total) AS [Maximum Sale],
+	MIN(Total) AS [Minimum Sale],
+	COUNT(*) AS [Sales Count]
+FROM
+	Invoice</sql><sql name="SQL 23">/*Created by: Daniel Mevs
+Created date: 8/13/23
+Description: Nesting functions
+*/
+
+SELECT
+	SUM(Total) AS [Total Sales],
+	round(AVG(Total),2) AS [Average Sales],
+	MAX(Total) AS [Maximum Sale],
+	MIN(Total) AS [Minimum Sale],
+	COUNT(*) AS [Sales Count]
+FROM
+	Invoice</sql><sql name="SQL 24">/*
+
+Creation Author: Daniel Mevs
+Creation Date: 8/31/23
+Description: Grouping in SQL | What are the average invoice totals by city?
+
+*/
+
+SELECT
+	BillingCity,
+	round(avg(total),2)
+FROM
+	Invoice
+GROUP BY
+	BillingCity
+ORDER BY
+	BillingCity</sql><sql name="SQL 25">/*
+
+Creation author: Daniel Mevs
+Creation date: 8/13/23
+Description: Grouping in SQL | What are the average invoice totals by city for only the cities that start with L?
+
+*/
+
+SELECT
+	BillingCity,
+	round(avg(total),2) as [Average Sale]
+FROM
+	Invoice
+WHERE
+	BillingCity LIKE 'L%'
+GROUP BY
+	BillingCity
+ORDER BY
+	BillingCity</sql><sql name="SQL 26">/*
+
+Creation author: Daniel Mevs
+Creation date: 8/13/23
+Description: What are the cities where the average invoice totals greater than $5.00?
+
+*/
+
+SELECT
+	BillingCity,
+	round(avg(total), 2)
+FROM
+	Invoice
+GROUP BY
+	BillingCity
+HAVING
+	avg(total) &gt; 5
+ORDER BY
+	BillingCity</sql><sql name="SQL 27">/*
+
+Creation author: Daniel Mevs
+Creation date: 8/13/23
+Description: What are the average invoice totals greater than $5.00 for cities starting with B?
+
+*/
+
+SELECT
+	BillingCity,
+	round(avg(total), 2)
+FROM
+	Invoice
+WHERE
+	BillingCity LIKE 'B%'
+GROUP BY
+	BillingCity
+HAVING
+	avg(total)&gt; 5
+ORDER BY
+	BillingCity</sql><sql name="SQL 28">/*
+
+Creation author: Daniel Mevs
+Creation date: 8/16/23
+Description: Subqueries | Gather data about all invoices that are less than the average invoice total in the invoice TABLE
+
+*/
+
+SELECT
+	InvoiceDate,
+	BillingCity,
+	BillingAddress,
+	total
+FROM
+	Invoice
+WHERE
+	total &lt;
+		(SELECT
+			avg(total)
+		FROM
+			Invoice)
+ORDER BY
+	Total DESC</sql><sql name="SQL 29">/*
+
+Created by: Daniel Mevs
+Created date: 8/13/23
+Description: Subqueries in the SELECT | How is each individual city performing against the global average sales?
+
+*/
+
+SELECT
+	BillingCity,
+	ROUND(AVG(total), 2) AS [City Average],
+	(select round(avg(total), 2) from Invoice) AS [Global Average]
+FROM
+	Invoice
+GROUP BY
+	BillingCity
+ORDER BY
+	BillingCity</sql><sql name="SQL 30">/*
+
+Creation Author: Daniel Mevs
+Creation Data: 8/13/23
+Description: Subqueries without Aggregate functions
+
+*/
+
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity
+FROM
+	Invoice
+WHERE
+	InvoiceDate &gt;
+(SELECT
+	InvoiceDate
+FROM
+	Invoice
+WHERE
+	InvoiceId = 251
+)</sql><sql name="SQL 31">/*
+
+Created by: Daniel Mevs
+Created date: 8/13/23
+Description:Returning multiple values from a subquery
+
+*/
+
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity
+FROM
+	Invoice
+WHERE
+	InvoiceDate IN
+(SELECT
+	InvoiceDate
+FROM
+	Invoice
+WHERE
+	InvoiceId IN (251, 252, 254)
+)</sql><sql name="SQL 32">/*
+
+Created by: Daniel Mevs
+Created date: 8/14/23
+Description: Subqueries and DISTINCT | Which tracks are not selling?
+
+*/
+SELECT
+	TrackId,
+	Composer,
+	Name
+FROM
+	Track
+WHERE
+	TrackId
+NOT IN
+(SELECT
+	DISTINCT
+	TrackId
+FROM
+	InvoiceLine
+ORDER BY
+	TrackId
+)</sql><sql name="SQL 33">/*
+
+Created by: Daniel Mevs
+Created date: 8/14/23
+Description: Views
+
+*/
+
+CREATE VIEW V_AvgTotal AS
+SELECT
+	round(avg(total), 2) AS [Average Total]
+FROM
+	Invoice</sql><sql name="SQL 34">/*
+
+Created by: Daniel Mevs
+Created date: 8/14/23
+Description: Modify View
+
+*/
+DROP VIEW &quot;main&quot;.&quot;V_AvgTotal&quot;;
+CREATE VIEW V_AvgTotal AS
+SELECT
+	avg(total) AS [Average Total]
+FROM
+	Invoice</sql><sql name="SQL 35">/*
+
+Created by: Daniel Mevs
+Created on: 8/14/23
+Description: Views and Joins
+
+*/
+
+CREATE VIEW V_Tracks_InvoiceLine AS
+SELECT
+	i.InvoiceId,
+	i.UnitPrice,
+	i.Quantity,
+	t.Name,
+	t.Composer,
+	t.Milliseconds
+FROM
+	InvoiceLine i
+INNER JOIN
+	Track t
+ON
+	i.TrackId = t.TrackId</sql><sql name="SQL 36">/*
+
+Created by: Daniel Mevs
+Created on: 8/14/23
+Description: Deleting a view
+
+*/
+
+DROP VIEW
+	V_AvgTotal</sql><sql name="SQL 37">/*
+
+Created by: Daniel Mevs
+Created on: 8/14/23
+Description: DML | Inserting Data
+
+*/
+
+INSERT INTO
+	Artist(Name)
+VALUES('Bob Dylan')</sql><sql name="SQL 38">/*
+
+Created by: Daniel Mevs
+Created on: 8/14/23
+Description: DML |Update Statement
+
+*/
+
+UPDATE
+	Artist
+SET Name = 'Jimi Hendrix'
+WHERE
+	ArtistId = 276</sql><sql name="SQL 39">/*
+
+Created by: Daniel Mevs
+Created on: 8/14/23
+Description: DML | Deleting data
+
+*/
+
+DELETE FROM
+	Artist
+WHERE
+	ArtistId = 276</sql><sql name="SQL 40">/*
+
+Created by: Daniel Mevs
+Created on: 8/14/23
+Description: General queries that begin to give you some high-level context
+
+*/
+
+-- 1. How many transactions took place between the years of 2011-2012
+
+SELECT
+	COUNT(*)
+FROM
+	Invoice
+WHERE
+	InvoiceDate &gt;= '2011-01-01' AND InvoiceDate &lt;= '2012-12-31'
+	
+	
+-- 2. How much money did WSDA Music Co. make during the same period?
+
+SELECT
+	SUM(total)
+FROM
+	Invoice
+WHERE
+	InvoiceDate &gt;= '2011-01-01' AND InvoiceDate &lt;= '2012-12-31'</sql><sql name="SQL 41">/*
+
+Created by: Daniel Mevs
+Created on: 8/14/23
+Description: More targeted questions that query the tables containing data about customers and employees
+
+*/
+
+-- 1. Get a list of customers who made purchases between 2011-2012
+
+SELECT
+	c.FirstName,
+	c.LastName,
+	i.total
+FROM Invoice i
+INNER JOIN
+	Customer c
+ON i.CustomerId = c.CustomerId
+WHERE
+	InvoiceDate &gt;= '2011-01-01' AND InvoiceDate &lt;= '2012-12-31'
+ORDER BY
+	i.total DESC</sql><sql name="SQL 42">/*
+
+Created by: Daniel Mevs
+Created on: 8/14/23
+Description: More targeted questions that query the tables containing data about customers and employees
+
+*/
+
+-- 2. Get a list of customers, sales reps, and total transaction amounts for each customer between 2011-2012
+SELECT
+	c.FirstName AS [Customer FN],
+	c.LastName AS [Customer LN],
+	e.FirstName AS [Employee FN],
+	e.LastName AS [Employee, LN],
+	i.total
+FROM
+	Invoice i
+INNER JOIN
+	Customer c
+ON i.CustomerId = c.CustomerId
+INNER JOIN
+	Employee e
+ON e.EmployeeId = c.SupportRepId
+WHERE
+	InvoiceDate &gt;= '2011-01-01' AND InvoiceDate &lt;= '2012-12-31'
+ORDER BY
+	i.total DESC
+</sql><sql name="SQL 43">/*
+
+Created by: Daniel Mevs
+Created on: 8/14/23
+Description: More targeted questions that query the tables containing data about customers and employees
+
+*/
+
+-- 3a. How many transactions are above the average transaction amount during the same time?
+-- Find the average transaction amount between 2011 and 2012
+
+SELECT
+	round(avg(total), 2) AS [Avg Transaction Amount]
+FROM 
+	Invoice
+WHERE
+	InvoiceDate &gt;= '2011-01-01' AND InvoiceDate &lt;= '2012-12-31'
+
+-- 3b. Get the number of transactions above the average transaction amount
+
+SELECT
+	count(total) AS [Num of Transactions Above Avg]
+FROM
+	Invoice
+WHERE
+	total &gt; (
+		SELECT
+			round(avg(total), 2) AS [Avg Transaction Amount]
+		FROM 
+			Invoice
+		WHERE
+			InvoiceDate &gt;= '2011-01-01' AND InvoiceDate &lt;= '2012-12-31'
+	)
+AND
+InvoiceDate &gt;= '2011-01-01' AND InvoiceDate &lt;= '2012-12-31'
+</sql><sql name="SQL 44">/*
+
+Created by: Daniel Mevs
+Created on: 8/14/23
+Description: More targeted questions that query the tables containing data about customers and employees
+
+*/
+
+
+-- 4. What was the average transaction amount for each year that WSDA Music has been in business
+
+SELECT
+	round(avg(total), 2) AS [Avg Transaction Amount],
+	strftime ('%Y', InvoiceDate) AS [Year]
+FROM
+	Invoice
+GROUP BY
+	strftime('%Y', InvoiceDate)</sql><sql name="SQL 45">/*
+
+Created by: Daniel Mevs
+Created date: 8/14/23
+Description: Queries that perform in-depth analysis with the aim of finding
+employees who may have been financially motivated to commit the crime
+
+*/
+
+-- 1. Get a list of employees who exceed the average transaction amount from sales they generated during 2011-2012
+SELECT
+	e.FirstName,
+	e.LastName,
+	sum(i.total) AS [Total Sales]
+FROM
+	Invoice i
+INNER JOIN
+	Customer c
+ON i.CustomerId = c.CustomerId
+INNER JOIN
+	Employee e
+ON e.EmployeeId = c.SupportRepId
+WHERE
+	InvoiceDate &gt;= '2011-01-01' AND InvoiceDate &lt;= '2012-12-31'
+AND
+	i.total &gt; 11.66
+GROUP BY
+	e.FirstName,
+	e.LastName
+ORDER BY
+	e.LastName
+
+</sql><sql name="SQL 46">/*
+
+Created by: Daniel Mevs
+Created date: 8/14/23
+Description: Queries that perform in-depth analysis with the aim of finding
+employees who may have been financially motivated to commit the crime
+
+*/
+
+-- 2. Create a Commission payout column that displays each employee's commission
+--  based on %15 of the sales transation amount
+
+SELECT
+	e.FirstName,
+	e.LastName,
+	sum(i.total) AS [Total Sales],
+	round(sum(i.total) * .15, 2) AS [Commission Payout]
+FROM
+	Invoice i
+INNER JOIN
+	Customer c
+ON i.CustomerId = c.CustomerId
+INNER JOIN
+	Employee e
+ON e.EmployeeId = c.SupportRepId
+WHERE
+	InvoiceDate &gt;= '2011-01-01' AND InvoiceDate &lt;= '2012-12-31'
+GROUP BY
+	e.Firstname,
+	e.LastName
+ORDER BY
+	e.LastName
+	
+-- 3. Which employee made the highest commission?
+-- Jane Peacock with $106.21</sql><sql name="SQL 47">/*
+
+Created by: Daniel Mevs
+Created date: 8/14/23
+Description: Queries that perform in-depth analysis with the aim of finding
+employees who may have been financially motivated to commit the crime
+
+*/
+
+-- 4. List the customers that Jane Peacock supported
+
+SELECT
+	c.FirstName AS [Customer FN],
+	c.LastName AS [Customer LN],
+	e.FirstName AS [Employee FN],
+	e.LastName AS [Employee LN],
+	sum(i.total) AS [Total Sales],
+	round(sum(i.total) * .15, 2) AS [Commission Payout]
+FROM
+	Invoice i
+INNER JOIN
+	Customer c
+ON i.CustomerId = c.CustomerId
+INNER JOIN
+	Employee e
+ON e.EmployeeId = c.SupportRepId
+WHERE
+	InvoiceDate &gt;= '2011-01-01' AND InvoiceDate &lt;= '2012-12-31' AND e.LastName = 'Peacock'
+GROUP BY
+	c.FirstName,
+	c.LastName,
+	e.FirstName,
+	e.LastName
+ORDER BY [Total Sales] DESC
+
+
+-- 5. Which customer made the highest purchase?
+-- John Doeein
+-- NOTE: The second highest commission was $32.75 while her highest is $1000.86; quite a difference</sql><sql name="SQL 48">/*
+
+Created by: Daniel Mevs
+Created date: 8/14/23
+Description: Queries that perform in-depth analysis with the aim of finding
+employees who may have been financially motivated to commit the crime
+
+*/
+
+-- 6. Take a look at this customer record. Does it look suspicious?
+-- Yes, yes it does. Most of the fields are NULL...
+
+SELECT 
+	*
+FROM
+	Customer c
+WHERE
+	c.LastName = 'Doeein'
+
+-- 7. Who can you conclude is our primary person of interest?
+-- Jane Peacock.
+</sql><sql name="SQL 49">SELECT
+	COUNT(*)
+FROM
+	Invoice
+WHERE
+	BillingCity = 'Brussels'</sql><sql name="SQL 50">SELECT 
+	COUNT(Composer)
+FROM
+	Track t
+-- WHERE t.Composer != ''
+
+
+
+</sql><current_tab id="33"/></tab_sql></sqlb_project>
